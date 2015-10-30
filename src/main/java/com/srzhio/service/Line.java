@@ -14,6 +14,7 @@ public class Line {
 
     public LineType determineLineType(String content) {
         if (content.isEmpty()) {
+            this.content = content;
             return LineType.EMPTY;
         }
         Matcher matcher = Patterns.HEADING_PATTERN.matcher(content);
