@@ -17,7 +17,7 @@ public class LineProcessor {
     private Map<LineType, LineEmitter> lineEmitters;
 
     public void recursiveProcessLine(final StringBuilder out, String content) {
-        final StringBuilder temp = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
         while (!content.isEmpty()) {
             String subLine = findSubstringFromFirstMatchToken(content);
             if (subLine.isEmpty()) {
@@ -55,6 +55,4 @@ public class LineProcessor {
         }
         return "";
     }
-
-
 }

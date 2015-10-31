@@ -6,7 +6,7 @@ public final class Patterns {
 
     public static final Pattern NEW_LINE_SEPARATOR = Pattern.compile("\r\n?|\n");
 
-    public static final Pattern EMPH_PATTERN = Pattern.compile("^[\\*]([^\\*]|[\\*][\\*][^\\*]+?[\\*][\\*])+?[\\*](?!\\*)");
+    public static final Pattern EMPH_PATTERN = Pattern.compile("^[\\*](([^\\*]|[\\*][\\*][^\\*]+?[\\*][\\*])+?)[\\*](?!\\*)");
 
     public static final Pattern STRONG_PATTERN = Pattern.compile("^[\\*]{2}(([^\\*]|[\\*][^\\*]*[\\*])+?)[\\*]{2}(?!\\*)");
 
