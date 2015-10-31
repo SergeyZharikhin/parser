@@ -4,5 +4,5 @@ import com.srzhio.service.Line;
 
 public interface LineEmitter {
 
-    void buildline(Line line, StringBuilder out);
+    void emitLine(Line line, StringBuilder out);
 }

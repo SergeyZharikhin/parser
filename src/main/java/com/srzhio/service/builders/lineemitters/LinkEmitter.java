@@ -3,18 +3,21 @@ package com.srzhio.service.builders.lineemitters;
 import com.srzhio.service.HtmlGenerator;
 import com.srzhio.service.Line;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.regex.MatchResult;
 
+@Service
 public class LinkEmitter implements LineEmitter {
 
     @Autowired
     private HtmlGenerator generator;
 
     @Override
-    public void buildline(Line line, StringBuilder out) {
+    public void emitLine(Line line, StringBuilder out) {
         generator.openLink(out);
-        emitLinkTag(out, line.getMatchResult());
+        emitLinkTag(out, line.getMatcher());
         generator.closeLink(out);
     }
 

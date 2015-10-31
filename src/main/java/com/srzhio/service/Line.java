@@ -1,44 +1,30 @@
 package com.srzhio.service;
 
-import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static com.srzhio.service.Patterns.*;
 
 public class Line {
 
     private String content;
     private LineType lineType;
-    private MatchResult matchResult;
+    private Matcher matcher;
 
-    public Line(String content) {
-        init(content);
+    public Line(String content, Matcher matcher) {
+        init(content, matcher);
     }
 
-    private void  init (String content) {
-        Matcher matcher = determineMatcherForContent(content);
-        if (matcher.find()) {
-            this.matchResult = matcher.toMatchResult();
-            this.lineType = determineLineTypeBasedOnMatchedPattern(matcher.pattern());
-        }
-        else {
-            this.content = matchResult.group();
-            this.lineType = LineType.NONE;
-        }
+    private void init(String content, Matcher matcher) {
+        this.content = content;
+        this.matcher = matcher;
+        this.lineType = determineLineTypeBasedOnMatchedPattern(matcher);
     }
 
-    public LineType determineLineTypeBasedOnMatchedPattern(Pattern pattern){
-            return null;
-    }
-
-    public Matcher determineMatcherForContent(String content) {
-        if (content.startsWith(Patterns.STRONG_START_SIGN)) {
-            return STRONG_PATTERN.matcher(content);
-        } else if (content.startsWith(Patterns.EMPH_START_SIGN)) {
-            return EMPH_PATTERN.matcher(content);
+    public LineType determineLineTypeBasedOnMatchedPattern(Matcher matcher) {
+        if (matcher.pattern().equals(Patterns.EMPH_PATTERN)) {
+            return LineType.EMPH;
+        } else if (matcher.pattern().equals(Patterns.STRONG_PATTERN)) {
+            return LineType.STRONG;
         }
-        return LINK_PATTERN.matcher(content);
+        return LineType.LINK;
     }
 
     public String getContent() {
@@ -57,11 +43,11 @@ public class Line {
         this.lineType = lineType;
     }
 
-    public MatchResult getMatchResult() {
-        return matchResult;
+    public Matcher getMatcher() {
+        return matcher;
     }
 
-    public void setMatchResult(MatchResult matchResult) {
-        this.matchResult = matchResult;
+    public void setMatcher(Matcher matcher) {
+        this.matcher = matcher;
     }
 }

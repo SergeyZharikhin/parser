@@ -4,7 +4,10 @@ import com.srzhio.service.HtmlGenerator;
 import com.srzhio.service.Block;
 import com.srzhio.service.LineProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ParagraphEmitter implements BlockEmitter {
 
     @Autowired
