@@ -19,6 +19,6 @@ public final class Patterns {
     public static final String LINK_START_SIGN = "[";
 
     public static final Pattern TOKEN_START_SIGNS = Pattern.compile("\\" + EMPH_START_SIGN + "\\" + EMPH_START_SIGN +
-            "|" + "\\" + EMPH_START_SIGN +
-            "|" + "\\" + LINK_START_SIGN);
+                                                                    "|" + "\\" + EMPH_START_SIGN +
+                                                                    "|" + "\\" + LINK_START_SIGN);
 }
