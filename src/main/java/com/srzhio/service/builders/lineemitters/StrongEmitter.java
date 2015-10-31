@@ -4,9 +4,7 @@ import com.srzhio.service.HtmlGenerator;
 import com.srzhio.service.Line;
 import com.srzhio.service.LineProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
 public class StrongEmitter implements LineEmitter {
 
     @Autowired
