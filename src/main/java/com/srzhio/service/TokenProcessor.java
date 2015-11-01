@@ -36,6 +36,7 @@ public class TokenProcessor {
                 TokenEmitter tokenEmitter = tokenEmitters.get(subPortion.getTokenType());
                 tokenEmitter.emitToken(subPortion, temp);
                 out.append(temp);
+                temp.setLength(0);
                 content = content.substring(tokenPosition + matchedTextLength); // step over emitted text
                 continue;
             }
