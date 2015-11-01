@@ -15,7 +15,7 @@ public class HeadingEmitter implements LineEmitter {
     @Override
     public void emitLine(Line line, StringBuilder out) {
         generator.openHeading(out, line.getHeadingDepth());
-        tokenProcessor.recursiveProcessLine(out, line.getContent());
+        tokenProcessor.process(out, line.getContent());
         generator.closeHeading(out, line.getHeadingDepth());
     }
 }

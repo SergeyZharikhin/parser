@@ -15,7 +15,7 @@ public class ParagraphEmitter implements LineEmitter {
     @Override
     public void emitLine(Line line, StringBuilder out) {
         generator.openParagraph(out);
-        tokenProcessor.recursiveProcessLine(out, line.getContent());
+        tokenProcessor.process(out, line.getContent());
         generator.closeParagraph(out);
     }
 }

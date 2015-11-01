@@ -12,7 +12,7 @@ public final class Patterns {
 
     public static final Pattern LINK_PATTERN = Pattern.compile("^\\[([^\\]]+)\\]\\(([^\\)]+)\\)(?!\\))");
 
-    public static final Pattern HEADING_PATTERN = Pattern.compile("^(#+).*");
+    public static final Pattern HEADING_PATTERN = Pattern.compile("^(#{1,6}+).*");
 
     public static final String EMPH_START_SIGN = "*";
     public static final String STRONG_START_SIGN = "**";

@@ -18,12 +18,12 @@ public class TokenProcessor {
     @Resource(name = "tokenEmitters")
     private Map<TokenType, TokenEmitter> tokenEmitters;
 
-    public void recursiveProcessLine(StringBuilder out, String content) {
+    public void process(StringBuilder out, String content) {
         StringBuilder temp = new StringBuilder();
         while (!content.isEmpty()) {
-            String subLine = findSubstringFromFirstMatchToken(content);
-            if (subLine.equals(content)) {
-                out.append(subLine);
+            String subLine = MatchingUtils.findSubstringFromFirstMatchedToken(content);
+            if (subLine.isEmpty()) {
+                out.append(content);
                 break;
             }
             int tokenPosition = content.length() - subLine.length();
@@ -42,20 +42,5 @@ public class TokenProcessor {
             out.append(content.substring(0, tokenPosition + 1)); // write unmarked text after token
             content = content.substring(tokenPosition + 1);
         }
-    }
-
-    /**
-     * Returns a substring starting from first markdown token of the input string(if present) or the input
-     * string itself otherwise
-     *
-     * @param line
-     * @return
-     */
-    private String findSubstringFromFirstMatchToken(String line) {
-        Matcher firstMatch = TOKEN_START_SIGNS.matcher(line);
-        if (firstMatch.find()) {
-            return line.substring(firstMatch.start());
-        }
-        return line;
     }
 }

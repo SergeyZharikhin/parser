@@ -14,7 +14,7 @@ public class Line {
         init(content);
     }
 
-    public void init(String content) {
+    private void init(String content) {
         if (content.isEmpty()) {
             this.content = content;
             this.lineType = LineType.EMPTY;

@@ -15,7 +15,7 @@ public class StrongEmitter implements TokenEmitter {
     @Override
     public void emitToken(Token token, StringBuilder out) {
         generator.openStrong(out);
-        tokenProcessor.recursiveProcessLine(out, token.getContent());
+        tokenProcessor.process(out, token.getContent());
         generator.closeStrong(out);
     }
 }

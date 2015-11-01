@@ -15,7 +15,7 @@ public class EmphasizeEmitter implements TokenEmitter {
     @Override
     public void emitToken(Token token, StringBuilder out) {
         generator.openEmphasis(out);
-        tokenProcessor.recursiveProcessLine(out, token.getContent());
+        tokenProcessor.process(out, token.getContent());
         generator.closeEmphasis(out);
     }
 }
