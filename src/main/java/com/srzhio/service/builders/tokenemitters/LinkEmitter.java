@@ -1,20 +1,19 @@
-package com.srzhio.service.builders.lineemitters;
+package com.srzhio.service.builders.tokenemitters;
 
 import com.srzhio.service.HtmlGenerator;
-import com.srzhio.service.Line;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.regex.MatchResult;
 
-public class LinkEmitter implements LineEmitter {
+public class LinkEmitter implements TokenEmitter {
 
     @Autowired
     private HtmlGenerator generator;
 
     @Override
-    public void emitLine(Line line, StringBuilder out) {
+    public void emitToken(Token token, StringBuilder out) {
         generator.openLink(out);
-        emitLinkTag(out, line.getMatcher());
+        emitLinkTag(out, token.getMatcher());
         generator.closeLink(out);
     }
 

@@ -1,16 +1,15 @@
-package com.srzhio.service.builders.blockemitters;
+package com.srzhio.service.builders.linemitters;
 
-import com.srzhio.service.Block;
 import com.srzhio.service.HtmlGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class EmptyEmitter implements BlockEmitter {
+public class EmptyEmitter implements LineEmitter {
 
     @Autowired
     private HtmlGenerator generator;
 
     @Override
-    public void emitBlock(Block block, StringBuilder out) {
+    public void emitLine(Line line, StringBuilder out) {
         generator.breakLine(out);
     }
 }

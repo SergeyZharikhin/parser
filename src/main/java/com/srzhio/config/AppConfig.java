@@ -1,15 +1,15 @@
 package com.srzhio.config;
 
-import com.srzhio.service.BlockType;
-import com.srzhio.service.LineType;
-import com.srzhio.service.builders.blockemitters.BlockEmitter;
-import com.srzhio.service.builders.blockemitters.EmptyEmitter;
-import com.srzhio.service.builders.blockemitters.HeadingEmitter;
-import com.srzhio.service.builders.blockemitters.ParagraphEmitter;
-import com.srzhio.service.builders.lineemitters.EmphasizeEmitter;
-import com.srzhio.service.builders.lineemitters.LineEmitter;
-import com.srzhio.service.builders.lineemitters.LinkEmitter;
-import com.srzhio.service.builders.lineemitters.StrongEmitter;
+import com.srzhio.service.builders.linemitters.LineType;
+import com.srzhio.service.builders.tokenemitters.TokenType;
+import com.srzhio.service.builders.linemitters.LineEmitter;
+import com.srzhio.service.builders.linemitters.EmptyEmitter;
+import com.srzhio.service.builders.linemitters.HeadingEmitter;
+import com.srzhio.service.builders.linemitters.ParagraphEmitter;
+import com.srzhio.service.builders.tokenemitters.EmphasizeEmitter;
+import com.srzhio.service.builders.tokenemitters.TokenEmitter;
+import com.srzhio.service.builders.tokenemitters.LinkEmitter;
+import com.srzhio.service.builders.tokenemitters.StrongEmitter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,52 +20,50 @@ import java.util.Map;
 public class AppConfig {
 
     @Bean()
-    public Map<BlockType, BlockEmitter> blockEmitters() {
-        return new EnumMap<BlockType, BlockEmitter>(BlockType.class) {{
-            put(BlockType.HEADING, headingEmitter());
-            put(BlockType.PARAGRAPH, paragraphEmitter());
-            put(BlockType.EMPTY, emptyEmitter());
-        }};
+    public Map<LineType, LineEmitter> lineEmitters() {
+        EnumMap<LineType, LineEmitter> lineEmittes = new EnumMap<>(LineType.class);
+        lineEmittes.put(LineType.HEADING, headingEmitter());
+        lineEmittes.put(LineType.PARAGRAPH, paragraphEmitter());
+        lineEmittes.put(LineType.EMPTY, emptyEmitter());
+        return lineEmittes;
     }
 
     @Bean()
-    public Map<LineType, LineEmitter> lineEmitters() {
-        Map<LineType, LineEmitter> linemitters = new EnumMap<>(LineType.class);
-        linemitters.put(LineType.EMPH, emphasizeEmitter());
-        linemitters.put(LineType.STRONG, strongEmitter());
-        linemitters.put(LineType.LINK, linkEmitter());
-        return linemitters;
+    public Map<TokenType, TokenEmitter> tokenEmitters() {
+        Map<TokenType, TokenEmitter> tokenEmitters = new EnumMap<>(TokenType.class);
+        tokenEmitters.put(TokenType.EMPH, emphasizeEmitter());
+        tokenEmitters.put(TokenType.STRONG, strongEmitter());
+        tokenEmitters.put(TokenType.LINK, linkEmitter());
+        return tokenEmitters;
     }
 
     @Bean
-    public BlockEmitter headingEmitter() {
+    public LineEmitter headingEmitter() {
         return new HeadingEmitter();
     }
 
     @Bean
-    public BlockEmitter paragraphEmitter() {
+    public LineEmitter paragraphEmitter() {
         return new ParagraphEmitter();
     }
 
     @Bean
-    public BlockEmitter emptyEmitter() {
+    public LineEmitter emptyEmitter() {
         return new EmptyEmitter();
     }
 
     @Bean
-    public LineEmitter emphasizeEmitter() {
+    public TokenEmitter emphasizeEmitter() {
         return new EmphasizeEmitter();
     }
 
     @Bean
-    public LineEmitter strongEmitter() {
+    public TokenEmitter strongEmitter() {
         return new StrongEmitter();
     }
 
     @Bean
-    public LineEmitter linkEmitter() {
+    public TokenEmitter linkEmitter() {
         return new LinkEmitter();
     }
-
-
 }

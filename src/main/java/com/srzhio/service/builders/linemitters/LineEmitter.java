@@ -1,6 +1,4 @@
-package com.srzhio.service.builders.lineemitters;
-
-import com.srzhio.service.Line;
+package com.srzhio.service.builders.linemitters;
 
 public interface LineEmitter {
 

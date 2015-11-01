@@ -1,21 +1,23 @@
-package com.srzhio.service;
+package com.srzhio.service.builders.linemitters;
+
+import com.srzhio.service.Patterns;
 
 import java.util.regex.Matcher;
 
-public class Block {
+public class Line {
 
     private String content;
-    private BlockType blockType;
+    private LineType lineType;
     private int headingDepth;
 
-    public Block(String content) {
+    public Line(String content) {
         init(content);
     }
 
     public void init(String content) {
         if (content.isEmpty()) {
             this.content = content;
-            this.blockType = BlockType.EMPTY;
+            this.lineType = LineType.EMPTY;
             return;
         }
         Matcher matcher = Patterns.HEADING_PATTERN.matcher(content);
@@ -23,11 +25,11 @@ public class Block {
             int hashesNumber = matcher.group(1).length();
             this.headingDepth = Math.min(hashesNumber, 6);
             this.content = content.substring(hashesNumber);
-            this.blockType = BlockType.HEADING;
+            this.lineType = LineType.HEADING;
             return;
         }
         this.content = content;
-        this.blockType = BlockType.PARAGRAPH;
+        this.lineType = LineType.PARAGRAPH;
     }
 
     public int getHeadingDepth() {
@@ -46,11 +48,11 @@ public class Block {
         this.content = content;
     }
 
-    public BlockType getBlockType() {
-        return blockType;
+    public LineType getLineType() {
+        return lineType;
     }
 
-    public void setBlockType(BlockType blockType) {
-        this.blockType = blockType;
+    public void setLineType(LineType lineType) {
+        this.lineType = lineType;
     }
 }

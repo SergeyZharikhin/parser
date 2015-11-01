@@ -1,6 +1,6 @@
 package com.srzhio.controller;
 
-import com.srzhio.service.BlockProcessor;
+import com.srzhio.service.LineProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ParserController {
 
     @Autowired
-    BlockProcessor blockProcessor;
+    LineProcessor lineProcessor;
 
     @RequestMapping(value="/parse", method=RequestMethod.GET)
     public String parserForm(Model model) {
@@ -25,7 +25,7 @@ public class ParserController {
     @RequestMapping(value = "/parse", method = RequestMethod.POST, produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
     public String parserInput(@RequestParam String input){
-        return blockProcessor.process(input);
+        return lineProcessor.process(input);
     }
 
 }
