@@ -1,10 +1,10 @@
-package com.srzhio.service.builders.tokenemitters;
+package com.srzhio.service.emitters.tokenemitters;
 
 import com.srzhio.service.HtmlGenerator;
 import com.srzhio.service.TokenProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class StrongEmitter implements TokenEmitter {
+public class EmphasizeEmitter implements TokenEmitter {
 
     @Autowired
     private HtmlGenerator generator;
@@ -14,8 +14,8 @@ public class StrongEmitter implements TokenEmitter {
 
     @Override
     public void emitToken(Token token, StringBuilder out) {
-        generator.openStrong(out);
+        generator.openEmphasis(out);
         tokenProcessor.recursiveProcessLine(out, token.getContent());
-        generator.closeStrong(out);
+        generator.closeEmphasis(out);
     }
 }

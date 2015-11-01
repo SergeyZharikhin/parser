@@ -1,4 +1,4 @@
-package com.srzhio.service.builders.linemitters;
+package com.srzhio.service.emitters.lineemitters;
 
 import com.srzhio.service.HtmlGenerator;
 import com.srzhio.service.TokenProcessor;

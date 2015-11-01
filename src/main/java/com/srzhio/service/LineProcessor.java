@@ -1,8 +1,8 @@
 package com.srzhio.service;
 
-import com.srzhio.service.builders.linemitters.Line;
-import com.srzhio.service.builders.linemitters.LineEmitter;
-import com.srzhio.service.builders.linemitters.LineType;
+import com.srzhio.service.emitters.lineemitters.Line;
+import com.srzhio.service.emitters.lineemitters.LineEmitter;
+import com.srzhio.service.emitters.lineemitters.LineType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

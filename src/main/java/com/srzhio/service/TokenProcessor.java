@@ -1,9 +1,9 @@
 package com.srzhio.service;
 
-import com.srzhio.service.builders.MatchingUtils;
-import com.srzhio.service.builders.tokenemitters.Token;
-import com.srzhio.service.builders.tokenemitters.TokenEmitter;
-import com.srzhio.service.builders.tokenemitters.TokenType;
+import com.srzhio.service.emitters.MatchingUtils;
+import com.srzhio.service.emitters.tokenemitters.Token;
+import com.srzhio.service.emitters.tokenemitters.TokenEmitter;
+import com.srzhio.service.emitters.tokenemitters.TokenType;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

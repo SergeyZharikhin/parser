@@ -1,15 +1,15 @@
 package com.srzhio.config;
 
-import com.srzhio.service.builders.linemitters.LineType;
-import com.srzhio.service.builders.tokenemitters.TokenType;
-import com.srzhio.service.builders.linemitters.LineEmitter;
-import com.srzhio.service.builders.linemitters.EmptyEmitter;
-import com.srzhio.service.builders.linemitters.HeadingEmitter;
-import com.srzhio.service.builders.linemitters.ParagraphEmitter;
-import com.srzhio.service.builders.tokenemitters.EmphasizeEmitter;
-import com.srzhio.service.builders.tokenemitters.TokenEmitter;
-import com.srzhio.service.builders.tokenemitters.LinkEmitter;
-import com.srzhio.service.builders.tokenemitters.StrongEmitter;
+import com.srzhio.service.emitters.lineemitters.LineType;
+import com.srzhio.service.emitters.tokenemitters.TokenType;
+import com.srzhio.service.emitters.lineemitters.LineEmitter;
+import com.srzhio.service.emitters.lineemitters.EmptyEmitter;
+import com.srzhio.service.emitters.lineemitters.HeadingEmitter;
+import com.srzhio.service.emitters.lineemitters.ParagraphEmitter;
+import com.srzhio.service.emitters.tokenemitters.EmphasizeEmitter;
+import com.srzhio.service.emitters.tokenemitters.TokenEmitter;
+import com.srzhio.service.emitters.tokenemitters.LinkEmitter;
+import com.srzhio.service.emitters.tokenemitters.StrongEmitter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

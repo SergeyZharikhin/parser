@@ -1,4 +1,4 @@
-package com.srzhio.service.builders.tokenemitters;
+package com.srzhio.service.emitters.tokenemitters;
 
 public enum TokenType {
 
