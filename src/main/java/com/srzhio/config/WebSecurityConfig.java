@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/parse")
+                .defaultSuccessUrl("/parse", true)
                 .permitAll()
                 .and()
                 .logout()
