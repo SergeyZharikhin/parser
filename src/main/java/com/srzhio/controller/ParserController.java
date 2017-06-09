@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ParserController {
 
     @Autowired
-    LineProcessor lineProcessor;
+    private LineProcessor lineProcessor;
 
     @RequestMapping(value="/parse", method=RequestMethod.GET)
     public String parserForm(Model model) {
